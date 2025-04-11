@@ -9,7 +9,8 @@ const apiUrl = 'https://vanessamovieapi-02068b25de4f.herokuapp.com/';
 @Injectable({
   providedIn: 'root'
 })
-export class FetchApiDataService {
+export class FetchApiDataService
+ {
   // Inject the HttpClient module to the constructor params
   constructor(private http: HttpClient) { }
 
