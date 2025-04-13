@@ -18,7 +18,6 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-user-registration-form',
-  standalone: true,
   imports: [
     CommonModule,
     FormsModule,
