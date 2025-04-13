@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
@@ -13,7 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { CommonModule } from '@angular/common';
-import { TestCardComponent } from './test-card/test-card.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 
 @NgModule({
@@ -22,7 +22,7 @@ import { TestCardComponent } from './test-card/test-card.component';
     //UserRegistrationFormComponent
   
     MovieCardComponent,
-    TestCardComponent
+    WelcomePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +39,7 @@ import { TestCardComponent } from './test-card/test-card.component';
     CommonModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
