@@ -1,12 +1,25 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FetchApiDataService } from '../fetch-api-data.service';
+
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormField } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-user-login-form',
-  standalone: false,
+  imports: [
+    MatCardModule,
+    MatFormField,
+    MatCardModule,
+    MatButtonModule,
+    CommonModule,
+    FormsModule
+  ],
   templateUrl: './user-login-form.component.html',
   styleUrl: './user-login-form.component.scss'
 })
