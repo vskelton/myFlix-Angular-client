@@ -10,15 +10,19 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppComponent } from './app.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
+import { CommonModule } from '@angular/common';
+import { TestCardComponent } from './test-card/test-card.component';
 
 
 @NgModule({
   declarations: [
-    //AppComponent,
+    AppComponent,
     //UserRegistrationFormComponent
   
-    MovieCardComponent
+    MovieCardComponent,
+    TestCardComponent
   ],
   imports: [
     BrowserModule,
@@ -31,9 +35,10 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    CommonModule
   ],
   providers: [],
-  //bootstrap: [AppComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
