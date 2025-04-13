@@ -10,12 +10,15 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MovieCardComponent } from './movie-card/movie-card.component';
 
 
 @NgModule({
   declarations: [
     //AppComponent,
     //UserRegistrationFormComponent
+  
+    MovieCardComponent
   ],
   imports: [
     BrowserModule,
