@@ -9,8 +9,7 @@ const apiUrl = 'https://vanessamovieapi-02068b25de4f.herokuapp.com/';
 @Injectable({
   providedIn: 'root'
 })
-export class FetchApiDataService
- {
+export class FetchApiDataService {
   // Inject the HttpClient module to the constructor params
   constructor(private http: HttpClient) { }
 
@@ -64,7 +63,7 @@ export class FetchApiDataService
   // Get one movie
   public getMovie(movieId: string): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + `/movies/${movieId}`, {
+    return this.http.get(apiUrl + `movies/${movieId}`, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       })
@@ -77,7 +76,7 @@ export class FetchApiDataService
   // Get director
   public getDirector(directorName: string): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + `/directors/${directorName}`, {
+    return this.http.get(apiUrl + `directors/${directorName}`, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       })
@@ -90,7 +89,7 @@ export class FetchApiDataService
   // Get genre
   public getGenre(genreName: string): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + `/genres/${genreName}`, {
+    return this.http.get(apiUrl + `genres/${genreName}`, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       })
@@ -104,21 +103,7 @@ export class FetchApiDataService
   public getUser(): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('username');
-    return this.http.get(apiUrl + `/users/${username}`, {
-      headers: new HttpHeaders({
-        Authorization: 'Bearer ' + token,
-      })
-    }).pipe(
-      map(this.extractResponseData),
-      catchError(this.handleError)
-    );
-  }
-
-  // Get favourite movies for a user
-  public getFavoriteMovies(): Observable<any> {
-    const token = localStorage.getItem('token');
-    const username = localStorage.getItem('username');
-    return this.http.get(apiUrl + `/users/${username}/favorites`, {
+    return this.http.get(apiUrl + `users/${username}`, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       })
@@ -132,7 +117,7 @@ export class FetchApiDataService
   public addFavoriteMovie(movieId: string): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('username');
-    return this.http.post(apiUrl + `/users/${username}/favorites/${movieId}`, {}, {
+    return this.http.post(apiUrl + `users/${username}/movies/${movieId}`, null, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       })
@@ -146,7 +131,7 @@ export class FetchApiDataService
   public editUser(userDetails: any): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('username');
-    return this.http.put(apiUrl + `/users/${username}`, userDetails, {
+    return this.http.put(apiUrl + `users/${username}`, userDetails, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       })
@@ -160,7 +145,7 @@ export class FetchApiDataService
   public deleteUser(): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('username');
-    return this.http.delete(apiUrl + `/users/${username}`, {
+    return this.http.delete(apiUrl + `users/${username}`, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       })
@@ -174,7 +159,7 @@ export class FetchApiDataService
   public deleteFavoriteMovie(movieId: string): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('username');
-    return this.http.delete(apiUrl + `/users/${username}/favorites/${movieId}`, {
+    return this.http.delete(apiUrl + `users/${username}/movies/${movieId}`, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       })
