@@ -35,6 +35,9 @@ export class UserLoginFormComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  /**
+   * This will allow user to log in 
+   */
   userLogin(): void {
     this.fetchApiData.userLogin(this.userData).subscribe(
       (result) => {
