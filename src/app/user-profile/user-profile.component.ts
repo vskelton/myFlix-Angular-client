@@ -55,7 +55,9 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     }
   }
 
-  //Function to get user details
+  /**
+   * Fetch the user details
+   */
   getUserProfile(): void {
     this.userSubscription = this.fetchApiData.getUser().subscribe(
       (resp: any) => {
@@ -85,7 +87,9 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     }
   }
 
-  //Function to edit user details
+  /**
+   * Allow user to edit the profile details
+   */
   editUser(): void {
     if (this.editProfileForm.valid) {
       const updatedUserData = this.editProfileForm.value;
@@ -105,7 +109,9 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     }
   }
 
-  //Function to delete user
+  /**
+   * Allow user to delete the profile
+   */
   deleteUser(): void {
     if (confirm('Are you sure you want to delete your account?')) {
       this.fetchApiData.deleteUser().subscribe(
@@ -121,14 +127,20 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     }
   }
 
-  //Function to logout 
+  /**
+   * Function to allow the user to logout of profile
+   */ 
   logoutUser(): void {
     this.router.navigate(['welcome']);
     localStorage.removeItem("user");
     localStorage.removeItem("token");
   }
 
-  //Function to delete a movie from favorites
+  /**
+   * 
+   * @param movieId 
+   * Function to allow user to delete a movie from the favorites list
+   */
   deleteFavoriteMovie(movieId: string): void {
     this.fetchApiData.deleteFavoriteMovie(movieId).subscribe(
       (response: any) => {
