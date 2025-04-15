@@ -50,10 +50,10 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-      if (this.userSubscription) {
-        this.userSubscription.unsubscribe();
-      }
+    if (this.userSubscription) {
+      this.userSubscription.unsubscribe();
     }
+  }
 
   //Function to get user details
   getUserProfile(): void {
@@ -68,7 +68,7 @@ export class UserProfileComponent implements OnInit, OnDestroy {
         });
       },
       (error) => {
-        this.snackBar.open('Error fetching user data', 'OK', { duration: 2000});
+        this.snackBar.open('Error fetching user data', 'OK', { duration: 2000 });
         console.error('Error fetching user data:', error);
       }
     );
@@ -93,12 +93,12 @@ export class UserProfileComponent implements OnInit, OnDestroy {
         (resp: any) => {
           this.user = resp;
           localStorage.setItem('user', JSON.stringify(this.user));
-          this.snackBar.open('Userdetails updated successfully', 'OK', { duration: 2000});
+          this.snackBar.open('Userdetails updated successfully', 'OK', { duration: 2000 });
           this.showEditForm = false;
           this.getUserProfile();
         },
         (error) => {
-          this.snackBar.open('Error updating user details', 'OK', {duration: 2000});
+          this.snackBar.open('Error updating user details', 'OK', { duration: 2000 });
           console.error('Error updating user details:', error);
         }
       );
@@ -108,13 +108,13 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   //Function to delete user
   deleteUser(): void {
     if (confirm('Are you sure you want to delete your account?')) {
-      this.fetchApiData.deleteUser(). subscribe(
+      this.fetchApiData.deleteUser().subscribe(
         (resp: any) => {
           console.log('User deleted:', resp);
           this.logoutUser();
         },
         (error) => {
-          this.snackBar.open('Error deleting user', 'OK', {duration: 2000});
+          this.snackBar.open('Error deleting user', 'OK', { duration: 2000 });
           console.error('Error deleting user:', error);
         }
       );

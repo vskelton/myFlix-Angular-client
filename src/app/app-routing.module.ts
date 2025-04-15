@@ -5,10 +5,10 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
-  { path: 'welcome', component: WelcomePageComponent},
-  { path: 'movies', component: MovieCardComponent},
-  { path: 'users/:Username', component: UserProfileComponent},
-  { path: '', redirectTo: 'welcome', pathMatch: 'full'}
+  { path: 'welcome', component: WelcomePageComponent },
+  { path: 'movies', component: MovieCardComponent },
+  { path: 'users/:Username', component: UserProfileComponent },
+  { path: '', redirectTo: 'welcome', pathMatch: 'full' }
 ];
 
 @NgModule({
