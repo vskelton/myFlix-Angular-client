@@ -18,6 +18,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class MovieCardComponent implements OnInit {
   movies: any[] = [];
+  genreMovies: any[] =[];
+  directorMovies: any[] = [];
+  movieDescription: string = '';
   constructor(public fetchApiData: FetchApiDataService,
     private snackBar: MatSnackBar
   ) { }
@@ -26,6 +29,9 @@ export class MovieCardComponent implements OnInit {
     this.getMovies();
   }
 
+  /**
+   * This will return a list of movies
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -34,6 +40,37 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+   * 
+   * @param genreName 
+   * This will return the genre of the movie
+   */
+  getGenre(genreName: string): void {
+    this.fetchApiData.getGenre(genreName).subscribe((resp: any) => {
+      this.genreMovies = resp;
+      console.log(this.genreMovies);
+      return this.genreMovies
+    })
+  }
+
+/**
+ * 
+ * @param directorName 
+ * This will return the name of the director
+ */
+  getDirector(directorName: string): void {
+    this.fetchApiData.getDirector(directorName).subscribe((resp: any) => {
+      this.directorMovies = resp;
+      console.log(this.directorMovies);
+      return this.directorMovies
+    })
+  }
+
+/**
+ * 
+ * @param movieId 
+ * This will allow users to add a movie to thier favorites list
+ */
   addToFavorites(movieId: string): void {
     this.fetchApiData.addFavoriteMovie(movieId).subscribe(
       (response) => {
